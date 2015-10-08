@@ -1,40 +1,40 @@
 Practical Machine Learning Course Project Report
 ================================================
 
-These is a file produced during a homework assignment of Coursera's MOOC <b>Practical Machine Learning</b> from <b>Johns Hopkins Bloomberg School of Public Health</b>.
-For more information about the several MOOCs comprised in this Specialization, please visit: [<https://www.coursera.org/specialization/jhudatascience/>](https://www.coursera.org/specialization/jhudatascience/)
-The scripts have been solely produced, tested and executed on Windows 10 Pro and RStudio Version 0.99.486.
-Developer: <b>Utkarsh Ashok Pathrabe</b>
-GitHub Repo: [<https://github.com/UtkarshPathrabe/Practical-Machine-Learning-Johns-Hopkins-Bloomberg-School-of-Public-Health-Coursera/tree/master/Project>](https://github.com/UtkarshPathrabe/Practical-Machine-Learning-Johns-Hopkins-Bloomberg-School-of-Public-Health-Coursera/tree/master/Project)
-Rpub: [<http://rpubs.com/UtkarshPathrabe/PracticalMachineLearningProjectReport>](http://rpubs.com/UtkarshPathrabe/PracticalMachineLearningProjectReport)
+These is a file produced during a homework assignment of Coursera's MOOC <b>Practical Machine Learning</b> from <b>Johns Hopkins Bloomberg School of Public Health</b>.  
+For more information about the several MOOCs comprised in this Specialization, please visit: [<https://www.coursera.org/specialization/jhudatascience/>](https://www.coursera.org/specialization/jhudatascience/)  
+The scripts have been solely produced, tested and executed on Windows 10 Pro and RStudio Version 0.99.486.  
+Developer: <b>Utkarsh Ashok Pathrabe</b>  
+GitHub Repo: [<https://github.com/UtkarshPathrabe/Practical-Machine-Learning-Johns-Hopkins-Bloomberg-School-of-Public-Health-Coursera/tree/master/Project>](https://github.com/UtkarshPathrabe/Practical-Machine-Learning-Johns-Hopkins-Bloomberg-School-of-Public-Health-Coursera/tree/master/Project)  
+Rpub: [<http://rpubs.com/UtkarshPathrabe/PracticalMachineLearningProjectReport>](http://rpubs.com/UtkarshPathrabe/PracticalMachineLearningProjectReport)  
 
 Background
 ----------
 
-Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large amount of data about personal activity relatively inexpensively. These type of devices are part of the quantified self movement - a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, our goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website here: [<http://groupware.les.inf.puc-rio.br/har>](http://groupware.les.inf.puc-rio.br/har) (see the section on the Weight Lifting Exercise Dataset).
+Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large amount of data about personal activity relatively inexpensively. These type of devices are part of the quantified self movement - a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, our goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website here: [<http://groupware.les.inf.puc-rio.br/har>](http://groupware.les.inf.puc-rio.br/har) (see the section on the Weight Lifting Exercise Dataset).  
 
 Data Sources
 ------------
 
-The training data for this project is available here:
-[<https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv>](https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv)
-The test data is available here:
-[<https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv>](https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv)
-The data for this project comes from this original source: [<http://groupware.les.inf.puc-rio.br/har>](http://groupware.les.inf.puc-rio.br/har). If you use the document you create for this class for any purpose please cite them as they have been very generous in allowing their data to be used for this kind of assignment.
+The training data for this project is available here:  
+[<https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv>](https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv)  
+The test data is available here:  
+[<https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv>](https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv)  
+The data for this project comes from this original source: [<http://groupware.les.inf.puc-rio.br/har>](http://groupware.les.inf.puc-rio.br/har). If you use the document you create for this class for any purpose please cite them as they have been very generous in allowing their data to be used for this kind of assignment.  
 
 Intended Results
 ----------------
 
-The goal of this project is to predict the manner in which they did the exercise. This is the "classe" variable in the training set. You may use any of the other variables to predict with. You should create a report describing how you built your model, how you used cross validation, what you think the expected out of sample error is, and why you made the choices you did. You will also use your prediction model to predict 20 different test cases.
-1. Your submission should consist of a link to a Github repo with your R markdown and compiled HTML file describing your analysis. Please constrain the text of the writeup to \< 2000 words and the number of figures to be less than 5. It will make it easier for the graders if you submit a repo with a gh-pages branch so the HTML page can be viewed online (and you always want to make it easy on graders :-).
-2. You should also apply your machine learning algorithm to the 20 test cases available in the test data above. Please submit your predictions in appropriate format to the programming assignment for automated grading. See the programming assignment for additional details.
+The goal of this project is to predict the manner in which they did the exercise. This is the "classe" variable in the training set. You may use any of the other variables to predict with. You should create a report describing how you built your model, how you used cross validation, what you think the expected out of sample error is, and why you made the choices you did. You will also use your prediction model to predict 20 different test cases.  
+1. Your submission should consist of a link to a Github repo with your R markdown and compiled HTML file describing your analysis. Please constrain the text of the writeup to \< 2000 words and the number of figures to be less than 5. It will make it easier for the graders if you submit a repo with a gh-pages branch so the HTML page can be viewed online (and you always want to make it easy on graders :-).  
+2. You should also apply your machine learning algorithm to the 20 test cases available in the test data above. Please submit your predictions in appropriate format to the programming assignment for automated grading. See the programming assignment for additional details.  
 
 Reproducibility
 ---------------
 
-In order to reproduce the same results, you need a certain set of packages as well as setting a pseudo random seed equal to the one I have used.
-`Note`: To install, for instance, the `rattle` package in R, run this command: `install.packages("rattle")`.
-The following Libraries were used for this project, which you should install and load them in your working environment.
+In order to reproduce the same results, you need a certain set of packages as well as setting a pseudo random seed equal to the one I have used.  
+`Note`: To install, for instance, the `rattle` package in R, run this command: `install.packages("rattle")`.  
+The following Libraries were used for this project, which you should install and load them in your working environment.  
 
 ``` r
 library(rattle)
@@ -66,7 +66,7 @@ library(randomForest)
 library(RColorBrewer)
 ```
 
-Finally, load the same seed with the following line of code:
+Finally, load the same seed with the following line of code:  
 
 ``` r
 set.seed(56789)
@@ -125,12 +125,12 @@ rm(trainFile)
 rm(testFile)
 ```
 
-The training data set contains 19622 observations and 160 variables, while the testing data set contains 20 observations and 160 variables. The `classe` variable in the training set is the outcome to predict.
+The training data set contains 19622 observations and 160 variables, while the testing data set contains 20 observations and 160 variables. The `classe` variable in the training set is the outcome to predict.  
 
 Cleaning Data
 -------------
 
-In this step, we will clean the dataset and get rid of observations with missing values as well as some meaningless variables.
+In this step, we will clean the dataset and get rid of observations with missing values as well as some meaningless variables.  
 
 1.  We clean the <b>Near Zero Variance</b> Variables.
 
@@ -233,10 +233,10 @@ training <- training[inTrain, ]
 rm(inTrain)
 ```
 
-The Dataset now consists of 54 variables with the observations divided as following:
-1. Training Data: 13737 observations.
-2. Validation Data: 5885 observations.
-3. Testing Data: 20 observations.
+The Dataset now consists of 54 variables with the observations divided as following:  
+1. Training Data: 13737 observations.  
+2. Validation Data: 5885 observations.  
+3. Testing Data: 20 observations.  
 
 Data Modelling
 --------------
@@ -302,7 +302,7 @@ The Estimated Accuracy of the Random Forest Model is 74.4774851% and the Estimat
 
 ### Random Forest
 
-We fit a predictive model for activity recognition using <b>Random Forest</b> algorithm because it automatically selects important variables and is robust to correlated covariates & outliers in general.
+We fit a predictive model for activity recognition using <b>Random Forest</b> algorithm because it automatically selects important variables and is robust to correlated covariates & outliers in general.  
 We will use <b>5-fold cross validation</b> when applying the algorithm.
 
 ``` r
