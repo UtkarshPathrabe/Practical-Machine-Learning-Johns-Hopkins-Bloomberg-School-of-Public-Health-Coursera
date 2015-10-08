@@ -132,7 +132,7 @@ Cleaning Data
 
 In this step, we will clean the dataset and get rid of observations with missing values as well as some meaningless variables.  
 
-1.  We clean the <b>Near Zero Variance</b> Variables.
+*  We clean the <b>Near Zero Variance</b> Variables.
 
 ``` r
 NZV <- nearZeroVar(trainRaw, saveMetrics = TRUE)
@@ -181,7 +181,7 @@ rm(testRaw)
 rm(NZV)
 ```
 
-2.  Removing some columns of the dataset that do not contribute much to the accelerometer measurements.
+*  Removing some columns of the dataset that do not contribute much to the accelerometer measurements.
 
 ``` r
 regex <- grepl("^X|timestamp|user_name", names(training01))
@@ -201,7 +201,7 @@ dim(testing)
 
     ## [1] 20 95
 
-3.  Removing columns that contain `NA's`.
+*  Removing columns that contain `NA's`.
 
 ``` r
 cond <- (colSums(is.na(training)) == 0)
