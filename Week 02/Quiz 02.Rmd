@@ -1,0 +1,101 @@
+---
+output: word_document
+---
+Quiz 02
+=======  
+
+|Attempts|Score|  
+|:------:|:---:|  
+|   1/3  |12/12|  
+
+Question 01
+-----------  
+Load the Alzheimer's disease data using the commands:  
+```{r warning=FALSE}
+library(AppliedPredictiveModeling)
+library(caret)
+data(AlzheimerDisease)
+```  
+Which of the following commands will create training and test sets with about 50% of the observations assigned to each?  
+
+### Answer  
+```{r warning=FALSE}
+adData = data.frame(diagnosis, predictors)
+trainIndex = createDataPartition(diagnosis, p = 0.50, list = FALSE)
+training = adData[trainIndex,]
+testing = adData[-trainIndex,]
+```  
+
+Question 02
+-----------  
+Load the cement data using the commands:  
+```{r warning=FALSE}
+library(AppliedPredictiveModeling)
+data(concrete)
+library(caret)
+set.seed(1000)
+inTrain = createDataPartition(mixtures$CompressiveStrength, p = 3/4)[[1]]
+training = mixtures[inTrain,]
+testing = mixtures[-inTrain,]
+```  
+Make a histogram and confirm the SuperPlasticizer variable is skewed. Normally you might use the log transform to try to make the data more symmetric. Why would that be a poor choice for this variable?  
+
+### Answer  
+* There are values of zero so when you take the log() transform those values will be -Inf.  
+
+#### Explanation  
+```{r warning=FALSE}
+hist(training$Superplasticizer)
+hist(log(training$Superplasticizer))
+log(training$Superplasticizer)
+```
+
+Question 03  
+-----------  
+Load the Alzheimer's disease data using the commands:  
+```{r warning=FALSE}
+library(caret)
+library(AppliedPredictiveModeling)
+set.seed(3433)
+data(AlzheimerDisease)
+adData = data.frame(diagnosis,predictors)
+inTrain = createDataPartition(adData$diagnosis, p = 3/4)[[1]]
+training = adData[ inTrain,]
+testing = adData[-inTrain,]
+```  
+Find all the predictor variables in the training set that begin with IL. Perform principal components on these variables with the preProcess() function from the caret package. Calculate the number of principal components needed to capture 80% of the variance. How many are there?  
+
+### Answer  
+7  
+
+#### Explanation  
+```{r warning=FALSE}
+newData <- training[, grep("^IL",  names(training), value = TRUE)]
+preProcess(newData, method = "pca", thresh = 0.8)
+```
+
+Question 04
+-----------  
+Load the Alzheimer's disease data using the commands:  
+```{r warning=FALSE}
+library(caret)
+library(AppliedPredictiveModeling)
+set.seed(3433)
+data(AlzheimerDisease)
+adData = data.frame(diagnosis,predictors)
+inTrain = createDataPartition(adData$diagnosis, p = 3/4)[[1]]
+training = adData[ inTrain,]
+testing = adData[-inTrain,]
+```  
+Create a training data set consisting of only the predictors with variable names beginning with IL and the diagnosis. Build two predictive models, one using the predictors as they are and one using PCA with principal components explaining 80% of the variance in the predictors. Use method="glm" in the train function. What is the accuracy of each method in the test set? Which is more accurate?  
+
+### Answer  
+Non-PCA Accuracy: 0.65;  
+PCA Accuracy: 0.72  
+
+#### Explanation  
+```{r warning=FALSE}
+newData <- training[,c(grep("^IL", names(training), value=TRUE), "diagnosis")]
+train(newData$diagnosis ~ ., method = "glm", data = newData)
+train (training$diagnosis~., method = "glm", data = predict(preProcess(newData[,-13], method = "pca", thresh = 0.8), newData[,-13]))
+```
