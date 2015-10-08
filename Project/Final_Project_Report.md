@@ -181,7 +181,7 @@ rm(testRaw)
 rm(NZV)
 ```
 
-1.  Removing some columns of the dataset that do not contribute much to the accelerometer measurements.
+2.  Removing some columns of the dataset that do not contribute much to the accelerometer measurements.
 
 ``` r
 regex <- grepl("^X|timestamp|user_name", names(training01))
@@ -201,7 +201,7 @@ dim(testing)
 
     ## [1] 20 95
 
-1.  Removing columns that contain `NA's`.
+3.  Removing columns that contain `NA's`.
 
 ``` r
 cond <- (colSums(is.na(training)) == 0)
@@ -376,7 +376,7 @@ ose <- 1 - as.numeric(confusionMatrix(validation$classe, predictRF)$overall[1])
 rm(predictRF)
 ```
 
-The Estimated Accuracy of the Random Forest Model is 99.8810535% and the Estimated Out-of-Sample Error is 0.1189465%.
+The Estimated Accuracy of the Random Forest Model is 99.8810535% and the Estimated Out-of-Sample Error is 0.1189465%.  
 Random Forests yielded better Results, as expected!
 
 Predicting The Manner of Exercise for Test Data Set
