@@ -79,15 +79,30 @@ img {
 </table>
 <div id="question-01" class="section level2">
 <h2>Question 01</h2>
-<p>Load the Alzheimer’s disease data using the commands:<br /><code>{r warning=FALSE} library(AppliedPredictiveModeling) library(caret) data(AlzheimerDisease)</code><br />Which of the following commands will create training and test sets with about 50% of the observations assigned to each?</p>
+<p>Load the Alzheimer’s disease data using the commands:</p>
+<pre class="r"><code>library(AppliedPredictiveModeling)
+library(caret)
+data(AlzheimerDisease)</code></pre>
+<p>Which of the following commands will create training and test sets with about 50% of the observations assigned to each?</p>
 <div id="answer" class="section level3">
 <h3>Answer</h3>
-<p><code>{r warning=FALSE} adData = data.frame(diagnosis, predictors) trainIndex = createDataPartition(diagnosis, p = 0.50, list = FALSE) training = adData[trainIndex,] testing = adData[-trainIndex,]</code></p>
+<pre class="r"><code>adData = data.frame(diagnosis, predictors)
+trainIndex = createDataPartition(diagnosis, p = 0.50, list = FALSE)
+training = adData[trainIndex,]
+testing = adData[-trainIndex,]</code></pre>
 </div>
 </div>
 <div id="question-02" class="section level2">
 <h2>Question 02</h2>
-<p>Load the cement data using the commands:<br /><code>{r warning=FALSE} library(AppliedPredictiveModeling) data(concrete) library(caret) set.seed(1000) inTrain = createDataPartition(mixtures$CompressiveStrength, p = 3/4)[[1]] training = mixtures[inTrain,] testing = mixtures[-inTrain,]</code><br />Make a histogram and confirm the SuperPlasticizer variable is skewed. Normally you might use the log transform to try to make the data more symmetric. Why would that be a poor choice for this variable?</p>
+<p>Load the cement data using the commands:</p>
+<pre class="r"><code>library(AppliedPredictiveModeling)
+data(concrete)
+library(caret)
+set.seed(1000)
+inTrain = createDataPartition(mixtures$CompressiveStrength, p = 3/4)[[1]]
+training = mixtures[inTrain,]
+testing = mixtures[-inTrain,]</code></pre>
+<p>Make a histogram and confirm the SuperPlasticizer variable is skewed. Normally you might use the log transform to try to make the data more symmetric. Why would that be a poor choice for this variable?</p>
 <div id="answer-1" class="section level3">
 <h3>Answer</h3>
 <ul>
@@ -95,31 +110,54 @@ img {
 </ul>
 <div id="explanation" class="section level4">
 <h4>Explanation</h4>
-<p><code>{r warning=FALSE} hist(training$Superplasticizer) hist(log(training$Superplasticizer)) log(training$Superplasticizer)</code></p>
+<pre class="r"><code>hist(training$Superplasticizer)
+hist(log(training$Superplasticizer))
+log(training$Superplasticizer)</code></pre>
 </div>
 </div>
 </div>
 <div id="question-03" class="section level2">
 <h2>Question 03</h2>
-<p>Load the Alzheimer’s disease data using the commands:<br /><code>{r warning=FALSE} library(caret) library(AppliedPredictiveModeling) set.seed(3433) data(AlzheimerDisease) adData = data.frame(diagnosis,predictors) inTrain = createDataPartition(adData$diagnosis, p = 3/4)[[1]] training = adData[ inTrain,] testing = adData[-inTrain,]</code><br />Find all the predictor variables in the training set that begin with IL. Perform principal components on these variables with the preProcess() function from the caret package. Calculate the number of principal components needed to capture 80% of the variance. How many are there?</p>
+<p>Load the Alzheimer’s disease data using the commands:</p>
+<pre class="r"><code>library(caret)
+library(AppliedPredictiveModeling)
+set.seed(3433)
+data(AlzheimerDisease)
+adData = data.frame(diagnosis,predictors)
+inTrain = createDataPartition(adData$diagnosis, p = 3/4)[[1]]
+training = adData[ inTrain,]
+testing = adData[-inTrain,]</code></pre>
+<p>Find all the predictor variables in the training set that begin with IL. Perform principal components on these variables with the preProcess() function from the caret package. Calculate the number of principal components needed to capture 80% of the variance. How many are there?</p>
 <div id="answer-2" class="section level3">
 <h3>Answer</h3>
 <p>7</p>
 <div id="explanation-1" class="section level4">
 <h4>Explanation</h4>
-<p><code>{r warning=FALSE} newData &lt;- training[, grep(&quot;^IL&quot;,  names(training), value = TRUE)] preProcess(newData, method = &quot;pca&quot;, thresh = 0.8)</code></p>
+<pre class="r"><code>newData &lt;- training[, grep(&quot;^IL&quot;,  names(training), value = TRUE)]
+preProcess(newData, method = &quot;pca&quot;, thresh = 0.8)</code></pre>
 </div>
 </div>
 </div>
 <div id="question-04" class="section level2">
 <h2>Question 04</h2>
-<p>Load the Alzheimer’s disease data using the commands:<br /><code>{r warning=FALSE} library(caret) library(AppliedPredictiveModeling) set.seed(3433) data(AlzheimerDisease) adData = data.frame(diagnosis,predictors) inTrain = createDataPartition(adData$diagnosis, p = 3/4)[[1]] training = adData[ inTrain,] testing = adData[-inTrain,]</code><br />Create a training data set consisting of only the predictors with variable names beginning with IL and the diagnosis. Build two predictive models, one using the predictors as they are and one using PCA with principal components explaining 80% of the variance in the predictors. Use method=“glm” in the train function. What is the accuracy of each method in the test set? Which is more accurate?</p>
+<p>Load the Alzheimer’s disease data using the commands:</p>
+<pre class="r"><code>library(caret)
+library(AppliedPredictiveModeling)
+set.seed(3433)
+data(AlzheimerDisease)
+adData = data.frame(diagnosis,predictors)
+inTrain = createDataPartition(adData$diagnosis, p = 3/4)[[1]]
+training = adData[ inTrain,]
+testing = adData[-inTrain,]</code></pre>
+<p>Create a training data set consisting of only the predictors with variable names beginning with IL and the diagnosis. Build two predictive models, one using the predictors as they are and one using PCA with principal components explaining 80% of the variance in the predictors. Use method=“glm” in the train function. What is the accuracy of each method in the test set? Which is more accurate?</p>
 <div id="answer-3" class="section level3">
 <h3>Answer</h3>
 <p>Non-PCA Accuracy: 0.65;<br />PCA Accuracy: 0.72</p>
 <div id="explanation-2" class="section level4">
 <h4>Explanation</h4>
-<p><code>{r warning=FALSE} newData &lt;- training[,c(grep(&quot;^IL&quot;, names(training), value=TRUE), &quot;diagnosis&quot;)] train(newData$diagnosis ~ ., method = &quot;glm&quot;, data = newData) train (training$diagnosis~., method = &quot;glm&quot;, data = predict(preProcess(newData[,-13], method = &quot;pca&quot;, thresh = 0.8), newData[,-13]))</code></p>
+<pre class="r"><code>newData &lt;- training[,c(grep(&quot;^IL&quot;, names(training), value=TRUE), &quot;diagnosis&quot;)]
+train(newData$diagnosis ~ ., method = &quot;glm&quot;, data = newData)
+train (training$diagnosis~., method = &quot;glm&quot;, data = predict(preProcess(newData[,-13], method = &quot;pca&quot;, thresh = 0.8), newData[,-13]))</code></pre>
 </div>
 </div>
 </div>
