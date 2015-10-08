@@ -1,7 +1,12 @@
 ---
-Title: Practical Machine Learning Project - Quantified Self Movement Data Analysis Report  
-Author: "Utkarsh Ashok Pathrabe"
-Output:  html_document
+title: Practical Machine Learning Project - Quantified Self Movement Data Analysis Report  
+author: "Utkarsh Ashok Pathrabe"
+output: 
+  md_document: 
+    variant: markdown_github
+  html_document:
+    toc: true
+    theme: united
 ---
 
 Practical Machine Learning Course Project Report  
@@ -11,8 +16,8 @@ These is a file produced during a homework assignment of Coursera's MOOC <b>Prac
 For more information about the several MOOCs comprised in this Specialization, please visit: [https://www.coursera.org/specialization/jhudatascience/](https://www.coursera.org/specialization/jhudatascience/)  
 The scripts have been solely produced, tested and executed on Windows 10 Pro and RStudio Version 0.99.486.  
 Developer: <b>Utkarsh Ashok Pathrabe</b>  
-GitHub Repo:   
-RPubs:   
+GitHub Repo: [https://github.com/UtkarshPathrabe/Practical-Machine-Learning-Johns-Hopkins-Bloomberg-School-of-Public-Health-Coursera/tree/master/Project](https://github.com/UtkarshPathrabe/Practical-Machine-Learning-Johns-Hopkins-Bloomberg-School-of-Public-Health-Coursera/tree/master/Project)  
+Rpub: [http://rpubs.com/UtkarshPathrabe/PracticalMachineLearningProjectReport](http://rpubs.com/UtkarshPathrabe/PracticalMachineLearningProjectReport)  
 
 ## Background  
 Using devices such as Jawbone Up, Nike FuelBand, and Fitbit it is now possible to collect a large amount of data about personal activity relatively inexpensively. These type of devices are part of the quantified self movement - a group of enthusiasts who take measurements about themselves regularly to improve their health, to find patterns in their behavior, or because they are tech geeks. One thing that people regularly do is quantify how much of a particular activity they do, but they rarely quantify how well they do it. In this project, our goal will be to use data from accelerometers on the belt, forearm, arm, and dumbell of 6 participants. They were asked to perform barbell lifts correctly and incorrectly in 5 different ways. More information is available from the website here: [http://groupware.les.inf.puc-rio.br/har](http://groupware.les.inf.puc-rio.br/har) (see the section on the Weight Lifting Exercise Dataset).   

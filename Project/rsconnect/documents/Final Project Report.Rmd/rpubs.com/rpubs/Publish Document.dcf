@@ -1,0 +1,7 @@
+name: Publish Document
+account: rpubs
+server: rpubs.com
+bundleId:
+        https://api.rpubs.com/api/v1/document/116483/bcc4d3fcd0564b9bacb41ded43792c63
+url: http://rpubs.com/UtkarshPathrabe/116483
+when: 1444336319.83424
